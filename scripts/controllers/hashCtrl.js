@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+// real time hashing of user input
+// uses Google's crypto-js library for MD5, SHA-256, or SHA-3
+
 angular.module('d3App.controllers')
   .controller('hashCtrl', ['$scope', function($scope) {
     $scope.hashes = { hashName: "MD5" };

@@ -12,5 +12,4 @@
   angular.module('d3App.controllers', []);
   angular.module('d3App.directives', ['d3']);
 
-
 }());

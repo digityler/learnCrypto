@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // dynamic d3 bar chart for english letter frequency
+  // make more general for other kinds of data
+
   angular.module('d3App.directives')
     .directive('d3Bars', ['d3', function(d3) {
       function link(scope, element, attr) {
@@ -28,7 +31,8 @@
                     else return 0;
                 })
                 .attr({ height: svgHeight, width: 40 });
-                //.text(function(d) { return d.key; });
+                // add character text labels and percentages
+                // .text(function(d) { return d.key; });
         }, true);
       }
       return {

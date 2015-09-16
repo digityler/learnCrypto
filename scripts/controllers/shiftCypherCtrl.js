@@ -1,10 +1,14 @@
 (function () {
   'use strict';
 
+// dynamically calculates letter frequency of user input and compares to actual english language frequency
+// to be added: ascii to binary conversion and xor
+
 angular.module('d3App.controllers')
   .controller('shiftCypherCtrl', ['$scope', function($scope, $http, dataUrl) {
     $scope.codeArray = [];
 
+    // offsets user text by selected number
     $scope.asciiCode = function(text, offset) {
       if (text == undefined) return;
       $scope.codeArray = [];
@@ -21,6 +25,7 @@ angular.module('d3App.controllers')
       return $scope.codeArray;
     }
 
+    // calculates frequency of user text input
     $scope.charFrequency = function(str) {
       if (str == undefined) return;
       var charCount = $scope.charFreq;
@@ -36,6 +41,7 @@ angular.module('d3App.controllers')
       $scope.charFreq = charFreq;
     }
 
+    // updates based on letter frequency of user input
     $scope.charFreq = {
       'A': 0,
       'B': 0,
@@ -64,6 +70,7 @@ angular.module('d3App.controllers')
       'Y': 0,
       'Z': 0
     }
+    // actual letter frequency of english language
     $scope.englishFreq = {
       'A': 0.08167,
       'B': 0.01492,
