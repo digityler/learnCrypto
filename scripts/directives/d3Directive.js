@@ -4,8 +4,8 @@
   // dynamic d3 bar chart for english letter frequency
   // make more general for other kinds of data
 
-  angular.module('d3App.directives')
-    .directive('d3Bars', ['d3', function(d3) {
+  angular.module('learnCryptoApp.directives')
+    .directive('d3BarChart', ['d3', function(d3) {
       function link(scope, element, attr) {
         var data = scope.data;
         var svgWidth = 1100;

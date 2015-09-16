@@ -1,3 +1,4 @@
+// not yet in use, temporary routing stub
 angular.module("cryptoApp", ["d3", "hashCtrl", "ngRoute"])
 	.config(function ($routeProvider) {
 		$routeProvider.when("/temp", {

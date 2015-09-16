@@ -4,8 +4,8 @@
 // dynamically calculates letter frequency of user input and compares to actual english language frequency
 // to be added: ascii to binary conversion and xor
 
-angular.module('d3App.controllers')
-  .controller('shiftCypherCtrl', ['$scope', function($scope, $http, dataUrl) {
+angular.module('learnCryptoApp.controllers')
+  .controller('shiftCypherCtrl', ['$scope', function($scope) {
     $scope.codeArray = [];
 
     // offsets user text by selected number
