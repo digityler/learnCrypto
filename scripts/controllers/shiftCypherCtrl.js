@@ -7,6 +7,9 @@
 angular.module('learnCryptoApp.controllers')
   .controller('shiftCypherCtrl', ['$scope', function($scope) {
     $scope.codeArray = [];
+    $scope.binary = [];
+    $scope.randArray = [];
+    $scope.xorArray = [];
 
     // offsets user text by selected number
     $scope.asciiCode = function(text, offset) {
@@ -40,6 +43,46 @@ angular.module('learnCryptoApp.controllers')
         charFreq[letter] = (charCount[letter] / str.length);
       $scope.charFreq = charFreq;
     }
+
+    $scope.toBinary = function(str, spaceSeparatedOctets) {
+      $scope.binary = [];
+      function zeroPad (num) {
+        return "00000000".slice(String(num).length) + num;
+      }
+      return str.replace(/[\s\S]/g, function(str) {
+        str = zeroPad(str.charCodeAt().toString(2));
+        return !1 == spaceSeparatedOctets ? $scope.binary.push(str) : $scope.binary.push(str + " ");
+      });
+    };
+
+    $scope.toAscii = function(bin) {
+      return bin.replace(/\s*[01]{8}\s*/g, function(bin) {
+        return String.fromCharCode(parseInt(bin, 2) % 26 + 65);
+      });
+    };
+
+    $scope.randUniform = function(binary) {
+      $scope.randArray = [];
+      for (var i = 0; i < binary.length; i++) {
+        if (Math.random() < 0.5)
+          $scope.randArray.push(0);
+        else
+          $scope.randArray.push(1);
+      }
+      return $scope.randArray;
+    };
+
+    $scope.xorBinary = function(binary, randBinary) {
+      $scope.xorArray = [];
+      var binaryArray = _.map(binary.split(''), function(num){ return parseInt(num); });
+      for (var i = 0; i < binaryArray.length; i++) {
+        if (binaryArray[i] + randBinary[i] == 1)
+          $scope.xorArray.push(1);
+        else
+          $scope.xorArray.push(0);
+      }
+      return $scope.xorArray;
+    };
 
     // updates based on letter frequency of user input
     $scope.charFreq = {
