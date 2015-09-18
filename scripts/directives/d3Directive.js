@@ -20,7 +20,10 @@
 
         function chart(data, init) {
           var maxVal = _.max(_.values(data));
-          var barHeight = svgHeight / maxVal;
+          if (maxVal == 0)
+            var barHeight = 0;
+          else
+            var barHeight = svgHeight / maxVal;
           var rect = svg.selectAll('rect');
           var rects = rect.data(d3.entries(data));
           if (init == true) 

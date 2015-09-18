@@ -112,7 +112,7 @@ angular.module('learnCryptoApp.controllers')
       'X': 0,
       'Y': 0,
       'Z': 0
-    }
+    };
     // actual letter frequency of english language
     $scope.englishFreq = {
       'A': 0.08167,
@@ -141,7 +141,7 @@ angular.module('learnCryptoApp.controllers')
       'X': 0.00150,
       'Y': 0.01974,
       'Z': 0.00074
-    }
+    };
   }]);
 
 }());
